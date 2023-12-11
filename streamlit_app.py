@@ -269,9 +269,7 @@ repl = PythonAstREPLTool(locals={"df": df}, name="python_repl",
 #         This tool will reply with available times for the specified date in 12 hour time,\
 #         for example: 15:00 and 3pm are the same", args_schema=PythonInputs)
 repl_1 = PythonAstREPLTool(locals={"df1": df1}, name="python_repl_1",
-        description="Use this to get full comprehensive list of make, model of cars and\
-        also for checking a single model or make availability"
-        , args_schema=PythonInputs)
+        description="Use this to get full comprehensive list of make, model of cars and also for checking a single model or make availability", args_schema=PythonInputs)
 tools = [tool1, repl, tool3,repl_1]
 agent = OpenAIFunctionsAgent(llm=llm, tools=tools, prompt=prompt)
 if 'agent_executor' not in st.session_state:
