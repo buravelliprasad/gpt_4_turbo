@@ -235,18 +235,17 @@ available_makers="Chrysler, Jeep, Ram"
 
 class PythonInputs(BaseModel):
     query: str = Field(description="code snippet to run")
-
 df = pd.read_csv("appointment_new.csv")
 # input_template = template.format(dhead=df.head().to_markdown(),details=details)
 class PythonInputs(BaseModel):
     query: str = Field(description="code snippet to run")
-if __name__ == "__main__":
-    df1 = pd.read_csv("car_desription_new.csv")
-    req_col=  ['NewUsed', 'Make', 'Model']
-    df1=df1[req_col]
-    df1=df1.drop_duplicates()
+
+df1 = pd.read_csv("car_desription_new.csv")
+req_col=  ['NewUsed', 'Make', 'Model']
+df1=df1[req_col]
+df1=df1.drop_duplicates()
 #     input_template = template.format(dhead=df1.head().to_markdown(),details=details,available_makers=available_makers)
-    input_template = template.format(dhead_1=df1.iloc[:3, :5].to_markdown(),dhead=df.iloc[:5, :5].to_markdown(),details=details)
+input_template = template.format(dhead_1=df1.iloc[:3, :5].to_markdown(),dhead=df.iloc[:5, :5].to_markdown(),details=details)
 # class PythonInputs(BaseModel):
 #     query: str = Field(description="code snippet to run")
 # df1 = pd.read_csv("car_desription_new.csv")
