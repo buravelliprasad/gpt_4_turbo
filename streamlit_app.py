@@ -241,11 +241,11 @@ df = pd.read_csv("appointment_new.csv")
 class PythonInputs(BaseModel):
     query: str = Field(description="code snippet to run")
 df1 = pd.read_csv("car_desription_new.csv")
-    req_col=  ['NewUsed', 'Make', 'Model']
-    df1=df1[req_col]
-    df1=df1.drop_duplicates()
+req_col=  ['NewUsed', 'Make', 'Model']
+df1=df1[req_col]
+df1=df1.drop_duplicates()
 #     input_template = template.format(dhead=df1.head().to_markdown(),details=details,available_makers=available_makers)
-    input_template = template.format(dhead_1=df1.iloc[:3, :5].to_markdown(),dhead=df.iloc[:5, :5].to_markdown(),details=details)
+input_template = template.format(dhead_1=df1.iloc[:3, :5].to_markdown(),dhead=df.iloc[:5, :5].to_markdown(),details=details)
 system_message = SystemMessage(content=input_template)
 
 prompt = OpenAIFunctionsAgent.create_prompt(
